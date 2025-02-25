@@ -142,6 +142,7 @@ class JiraServer {
   }
 
   private async loadProjectKey(workingDir: string): Promise<string> {
+    return 'JMP';
     try {
       const configPath = path.join(workingDir, ".jira-config.json");
       const configContent = await fs.promises.readFile(configPath, "utf-8");
