@@ -422,19 +422,25 @@ class JiraServer {
             if (summary) updateData.fields.summary = summary;
             if (description) updateData.fields.description = description;
             if (status) {
-              console.debug("425:"+status)
+              // console.debug("425:"+status)
               const transitions = await this.axiosInstance.get(
                 `/issue/${issue_key}/transitions`
               );
+              let transition:any = null;
               for (let t of transitions.data.transitions) {
-                console.debug("430:"+t.name);
+                // console.debug("430:"+t.name);
+                if (t.name.toLowerCase() === status.toLowerCase()) {
+                  transition = t;
+                } else if (t.name === status) {
+                  transition = t;
+                }
               }
               
-              const transition = transitions.data.transitions.find(
-                (t: any) => t.name.toLowerCase() === status.toLowerCase()
-              );
+              // const transition = transitions.data.transitions.find(
+              //   (t: any) => t.name.toLowerCase() === status.toLowerCase()
+              // );
               if (transition) {
-                console.debug('437 attempting transition', issue_key, transition.id, transition);
+                // console.debug('437 attempting transition', issue_key, transition.id, transition);
                 await this.axiosInstance.post(
                   `/issue/${issue_key}/transitions`,
                   {
@@ -442,7 +448,8 @@ class JiraServer {
                   }
                 );
               } else {
-                console.debug("no transition found for", status)
+                console.error("[MCP Error]", "No transition found for "+status);
+                // console.debug("no transition found for", status)
               }
             }
 
