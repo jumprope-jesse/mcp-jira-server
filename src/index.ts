@@ -447,6 +447,7 @@ class JiraServer {
                     transition: { id: transition.id },
                   }
                 );
+                console.error("[MCP Error]", "COMPLETED TRANSITION for "+status);
               } else {
                 console.error("[MCP Error]", "No transition found for "+status);
                 // console.debug("no transition found for", status)
