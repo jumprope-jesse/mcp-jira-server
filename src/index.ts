@@ -168,10 +168,10 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               summary: {
                 type: "string",
                 description: "Issue summary/title",
@@ -185,7 +185,9 @@ class JiraServer {
                 description: "Issue type (Task, Epic, or Subtask)",
               },
             },
-            required: ["working_dir", "summary", "description", "type"],
+            required: [
+              // "working_dir", 
+              "summary", "description", "type"],
           },
         },
         {
@@ -194,17 +196,17 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               status: {
                 type: "string",
                 description:
                   'Filter by status (e.g., "To Do", "In Progress", "Done")',
               },
             },
-            required: ["working_dir"],
+            required: [],
           },
         },
         {
@@ -213,10 +215,10 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               issue_key: {
                 type: "string",
                 description: "Issue key (e.g., PRJ-123)",
@@ -234,7 +236,9 @@ class JiraServer {
                 description: "New status",
               },
             },
-            required: ["working_dir", "issue_key"],
+            required: [
+              // "working_dir", 
+              "issue_key"],
           },
         },
         {
@@ -243,16 +247,18 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               issue_key: {
                 type: "string",
                 description: "Issue key (e.g., PRJ-123)",
               },
             },
-            required: ["working_dir", "issue_key"],
+            required: [
+              // "working_dir", 
+              "issue_key"],
           },
         },
         {
@@ -261,16 +267,18 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               issue_key: {
                 type: "string",
                 description: "Issue key (e.g., PRJ-123)",
               },
             },
-            required: ["working_dir", "issue_key"],
+            required: [
+              // "working_dir", 
+              "issue_key"],
           },
         },
         {
@@ -279,10 +287,10 @@ class JiraServer {
           inputSchema: {
             type: "object",
             properties: {
-              working_dir: {
-                type: "string",
-                description: "Working directory containing .jira-config.json",
-              },
+              // working_dir: {
+              //   type: "string",
+              //   description: "Working directory containing .jira-config.json",
+              // },
               issue_key: {
                 type: "string",
                 description: "Issue key (e.g., PRJ-123)",
@@ -292,7 +300,9 @@ class JiraServer {
                 description: "Comment text to add to the issue",
               },
             },
-            required: ["working_dir", "issue_key", "comment"],
+            required: [
+              // "working_dir", 
+              "issue_key", "comment"],
           },
         },
       ],
