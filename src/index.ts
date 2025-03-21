@@ -422,12 +422,12 @@ class JiraServer {
             if (summary) updateData.fields.summary = summary;
             if (description) updateData.fields.description = description;
             if (status) {
-              console.debug("going to attempt transition instead of update", status)
+              console.debug("425:"+status)
               const transitions = await this.axiosInstance.get(
                 `/issue/${issue_key}/transitions`
               );
               for (let t of transitions.data.transitions) {
-                console.debug(430, 'transition available', t);
+                console.debug("430:"+t.name);
               }
               
               const transition = transitions.data.transitions.find(
