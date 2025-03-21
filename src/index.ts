@@ -422,19 +422,27 @@ class JiraServer {
             if (summary) updateData.fields.summary = summary;
             if (description) updateData.fields.description = description;
             if (status) {
+              console.log("going to attempt transition instead of update", status)
               const transitions = await this.axiosInstance.get(
                 `/issue/${issue_key}/transitions`
               );
+              for (let t of transitions.data.transitions) {
+                console.log(430, 'transition available', t);
+              }
+              
               const transition = transitions.data.transitions.find(
                 (t: any) => t.name.toLowerCase() === status.toLowerCase()
               );
               if (transition) {
+                console.log('437 attempting transition', issue_key, transition.id, transition);
                 await this.axiosInstance.post(
                   `/issue/${issue_key}/transitions`,
                   {
                     transition: { id: transition.id },
                   }
                 );
+              } else {
+                console.log("no transition found for", status)
               }
             }
 
